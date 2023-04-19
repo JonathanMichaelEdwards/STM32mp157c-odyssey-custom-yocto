@@ -1,0 +1,21 @@
+diff --git b/stm32mp151.dts.orig a/stm32mp151.dts
+index 90b9338..c0a8b00 100644
+--- b/fdts/stm32mp151.dtsi
++++ a/fdts/stm32mp151.dtsi
+@@ -461,6 +461,16 @@
+ 			secure-status = "disabled";
+ 		};
+ 
++		i2c2: i2c@40013000 {
++			compatible = "st,stm32mp15-i2c";
++			reg = <0x40013000 0x400>;
++			clocks = <&rcc I2C2_K>;
++			resets = <&rcc I2C2_R>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
+ 		iwdg1: watchdog@5c003000 {
+ 			compatible = "st,stm32mp1-iwdg";
+ 			reg = <0x5C003000 0x400>;

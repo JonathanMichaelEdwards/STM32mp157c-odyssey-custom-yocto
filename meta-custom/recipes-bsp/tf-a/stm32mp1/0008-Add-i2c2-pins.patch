@@ -1,0 +1,28 @@
+diff --git b/stm32mp15-pinctrl.dtsi.orig a/stm32mp15-pinctrl.dtsi
+index 16c40cb..d95bf67 100644
+--- b/fdts/stm32mp15-pinctrl.dtsi
++++ a/fdts/stm32mp15-pinctrl.dtsi
+@@ -346,16 +346,14 @@
+ 				 <STM32_PINMUX('A', 12, ANALOG)>; /* OTG_FS_DP */
+ 		};
+ 	};
+-};
+ 
+-&pinctrl_z {
+-	i2c4_pins_a: i2c4-0 {
++	i2c2_pins_a: i2c2-0 {
+ 		pins {
+-			pinmux = <STM32_PINMUX('Z', 4, AF6)>, /* I2C4_SCL */
+-				 <STM32_PINMUX('Z', 5, AF6)>; /* I2C4_SDA */
+-			bias-disable;
+-			drive-open-drain;
+-			slew-rate = <0>;
+-		};
++			pinmux = <STM32_PINMUX('H', 4, AF4)>, /* I2C2_SCL */
++				 	<STM32_PINMUX('H', 5, AF4)>; /* I2C2_SDA */
++					bias-disable;
++					drive-open-drain;
++					slew-rate = <0>;
++			};
+ 	};
+ };

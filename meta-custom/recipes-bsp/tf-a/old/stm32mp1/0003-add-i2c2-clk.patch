@@ -1,0 +1,12 @@
+diff --git b/stm32mp1_clk.c.orig a/stm32mp1_clk.c
+index 9bdefe8..ca7fa49 100644
+--- b/drivers/st/clk/stm32mp1_clk.c
++++ a/drivers/st/clk/stm32mp1_clk.c
+@@ -409,6 +409,7 @@ static const struct stm32mp1_clk_gate stm32mp1_clk_gate[] = {
+ 	_CLK_SC_SELEC(N_S, RCC_MP_APB4ENSETR, 16, USBPHY_K, _USBPHY_SEL),
+ 
+ 	_CLK_SC_SELEC(SEC, RCC_MP_APB5ENSETR, 0, SPI6_K, _SPI6_SEL),
++	_CLK_SC_SELEC(N_S, RCC_MP_APB1ENSETR, 22, I2C2_K, _I2C12_SEL),
+ 	_CLK_SC_SELEC(SEC, RCC_MP_APB5ENSETR, 2, I2C4_K, _I2C46_SEL),
+ 	_CLK_SC_SELEC(SEC, RCC_MP_APB5ENSETR, 3, I2C6_K, _I2C46_SEL),
+ 	_CLK_SC_SELEC(SEC, RCC_MP_APB5ENSETR, 4, USART1_K, _UART1_SEL),
