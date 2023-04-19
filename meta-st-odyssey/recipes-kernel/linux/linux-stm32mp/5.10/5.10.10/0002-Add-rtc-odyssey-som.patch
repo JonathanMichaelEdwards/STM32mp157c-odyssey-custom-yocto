@@ -1,0 +1,62 @@
+diff --git b/stm32mp157c-odyssey-som.dtsi.orig a/stm32mp157c-odyssey-som.dtsi
+index 6cf49a0..017ab7e 100644
+--- b/arch/arm/boot/dts/stm32mp157c-odyssey-som.dtsi
++++ a/arch/arm/boot/dts/stm32mp157c-odyssey-som.dtsi
+@@ -12,6 +12,7 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/mfd/st,stpmic1.h>
++//#include <dt-bindings/rtc/rtc-stm32.h>
+ 
+ / {
+ 	model = "Seeed Studio Odyssey-STM32MP157C SOM";
+@@ -173,8 +174,8 @@
+ 
+ 			vdd_usb: ldo4 {
+ 				regulator-name = "vdd_usb";
+-				regulator-min-microvolt = <3300000>;
+-				regulator-max-microvolt = <3300000>;
++				//regulator-min-microvolt = <3300000>;
++				//regulator-max-microvolt = <3300000>;
+ 				interrupts = <IT_CURLIM_LDO4 0>;
+ 			};
+ 
+@@ -197,7 +198,7 @@
+ 			vref_ddr: vref_ddr {
+ 				regulator-name = "vref_ddr";
+ 				regulator-always-on;
+-				regulator-over-current-protection;
++				//regulator-over-current-protection;
+ 			};
+ 
+ 			 bst_out: boost {
+@@ -213,7 +214,7 @@
+ 			 vbus_sw: pwr_sw2 {
+ 				regulator-name = "vbus_sw";
+ 				interrupts = <IT_OCP_SWOUT 0>;
+-				regulator-active-discharge;
++				regulator-active-discharge = <1>;
+ 			 };
+ 		};
+ 
+@@ -255,7 +256,10 @@
+ };
+ 
+ &rtc {
+-	status = "okay";
++	st,lsco = <2>;
++	pinctrl-0 = <&rtc_out2_rmp_pins_a>;
++	pinctrl-names = "default";
++    status = "okay";
+ };
+ 
+ &sdmmc2 {
+@@ -269,7 +274,7 @@
+ 	st,neg-edge;
+ 	bus-width = <8>;
+ 	vmmc-supply = <&v3v3>;
+-	vqmmc-supply = <&v3v3>;
++	vqmmc-supply = <&vdd>;
+ 	mmc-ddr-3_3v;
+ 	status = "okay";
+ };
